@@ -121,11 +121,10 @@ intmavens/
 │   │   └── Footer/
 │   ├── pages/
 │   ├── assets/
-│   ├── styles/
 │   ├── utils/
 │   ├── data/
 │   ├── App.jsx
-│   ├── App.css
+│   ├── App.css   # centralized global styles for all components
 │   ├── index.css
 │   └── main.jsx
 ├── .gitignore
