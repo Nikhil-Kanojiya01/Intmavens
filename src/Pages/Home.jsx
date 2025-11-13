@@ -1,16 +1,18 @@
 import React from 'react'
-import Hero from '../components/Hero/Hero'
-import Services from '../components/Services/Services'
-import Blog from '../components/Blog/Blog'
-import Testimonials from '../components/Testimonials/Testimonials'
+import Hero from '../components/Hero'
+import Services from '../components/Services'
+import Informative from '../components/Informative'
+import Blog from '../components/Blog'
+import Testimonials from '../components/Testimonials'
 
 const Home = () => {
   return (
     <>
       <Hero />
       <Services />
-      <Blog />
+      <Informative />
       <Testimonials />
+      <Blog />
     </>
   )
 }

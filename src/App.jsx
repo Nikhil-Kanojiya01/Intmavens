@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { useScrollToTop } from "./utils/scrollToTop";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -9,6 +9,7 @@ import Services from "./Pages/Services";
 import Blog from "./Pages/Blog";
 import NotFound from "./Pages/NotFound";
 import "./App.css";
+import Testimonials from "./components/Testimonials";
 
 const MainLayout = () => {
   useScrollToTop();

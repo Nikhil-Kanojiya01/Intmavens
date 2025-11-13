@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../../assets/images/logo-300x180.png'
+import logo from '../assets/images/logo-300x180.png'
 
 const Header = () => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -37,20 +37,24 @@ const Header = () => {
 								<Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
 							</li>
 							<li>
+								<Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
+							</li>
+							<li>
 								<Link to="/services" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
 							</li>
 							<li>
-								<Link to="/blog" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link>
+								<Link to="/resources" onClick={() => setIsMobileMenuOpen(false)}>Resources</Link>
 							</li>
 							<li>
-								<a href="mailto:contactus@intmavens.com" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
+								<Link to="/career" onClick={() => setIsMobileMenuOpen(false)}>Career</Link>
 							</li>
 						</ul>
 					</nav>
 
-					<div className="contact-info">
-						<span>📞 +91-7972143020</span>
-						<span>✉️ contactus@intmavens.com</span>
+					<div className="header-contact">
+						<Link to="/contact" className="btn btn--primary">
+							Contact
+						</Link>
 					</div>
 				</div>
 			</div>
