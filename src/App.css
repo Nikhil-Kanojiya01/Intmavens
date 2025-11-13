@@ -1359,6 +1359,80 @@ p {
     opacity: 0.1;
 }
 
+/* Simple Testimonial (without card styling) */
+.testimonial-simple {
+    text-align: center;
+    padding: 1rem 0;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.testimonial-simple__quote {
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-simple__quote-icon {
+    font-size: 2rem;
+    color: var(--primary);
+    opacity: 0.4;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.testimonial-simple__text {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-primary);
+    margin: 0;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.testimonial-simple__author {
+    margin-top: 1.5rem;
+}
+
+.testimonial-simple__name {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem 0;
+}
+
+.testimonial-simple__position {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    margin: 0 0 0.25rem 0;
+    font-weight: 400;
+}
+
+.testimonial-simple__company {
+    font-size: var(--font-size-sm);
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-fast);
+    display: inline-block;
+    margin-bottom: 0.75rem;
+}
+
+.testimonial-simple__company:hover {
+    color: var(--primary-variant);
+    text-decoration: underline;
+}
+
+.testimonial-simple__rating {
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.testimonial-simple__star {
+    color: #ffd700;
+    font-size: 1rem;
+}
+
 /* Legacy Testimonials (if needed for backwards compatibility) */
 
 .testimonials-grid {
@@ -2594,6 +2668,19 @@ p {
         font-size: var(--font-size-base);
     }
 
+    .testimonial-simple {
+        padding: 1rem;
+        max-width: 100%;
+    }
+
+    .testimonial-simple__quote-icon {
+        font-size: 1.5rem;
+    }
+
+    .testimonial-simple__text {
+        font-size: var(--font-size-lg);
+    }
+
     /* About page adjustments */
     .about-section {
         padding: var(--space-3xl) 0;
@@ -3040,6 +3127,23 @@ p {
     }
 
     .testimonial-card__name {
+        font-size: var(--font-size-lg);
+    }
+
+    .testimonial-simple {
+        padding: 0.5rem;
+        max-width: 100%;
+    }
+
+    .testimonial-simple__quote-icon {
+        font-size: 1.3rem;
+    }
+
+    .testimonial-simple__text {
+        font-size: var(--font-size-base);
+    }
+
+    .testimonial-simple__name {
         font-size: var(--font-size-lg);
     }
 
