@@ -39,8 +39,17 @@ const Header = () => {
 							<li>
 								<Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
 							</li>
+							<li className="dropdown">
+								<Link to="/services" className="dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
+								<ul className="dropdown-menu">
+									<li><Link to="/services/application-modernization" onClick={() => setIsMobileMenuOpen(false)}>Application Modernization</Link></li>
+									<li><Link to="/services/artificial-intelligence" onClick={() => setIsMobileMenuOpen(false)}>Artificial Intelligence</Link></li>
+									<li><Link to="/services/cloud-migration" onClick={() => setIsMobileMenuOpen(false)}>Cloud Migration</Link></li>
+									<li><Link to="/services/hybrid-cloud-integration" onClick={() => setIsMobileMenuOpen(false)}>Hybrid Cloud Integration</Link></li>
+								</ul>
+							</li>
 							<li>
-								<Link to="/services" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
+								<Link to="/blog" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link>
 							</li>
 							<li>
 								<Link to="/resources" onClick={() => setIsMobileMenuOpen(false)}>Resources</Link>

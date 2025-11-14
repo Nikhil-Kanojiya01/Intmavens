@@ -9,6 +9,10 @@ import Services from "./Pages/Services";
 import Blog from "./Pages/Blog";
 import Contact from "./Pages/Contact";
 import NotFound from "./Pages/NotFound";
+import HybridCloudIntegration from "./Pages/HybridCloudIntegration";
+import CloudMigration from "./Pages/CloudMigration";
+import ArtificialIntelligence from "./Pages/ArtificialIntelligence";
+import ApplicationModernization from "./Pages/ApplicationModernization";
 import "./App.css";
 import Testimonials from "./components/Testimonials";
 
@@ -37,6 +41,10 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="services" element={<Services />} />
+          <Route path="services/hybrid-cloud-integration" element={<HybridCloudIntegration />} />
+          <Route path="services/cloud-migration" element={<CloudMigration />} />
+          <Route path="services/artificial-intelligence" element={<ArtificialIntelligence />} />
+          <Route path="services/application-modernization" element={<ApplicationModernization />} />
           <Route path="blog" element={<Blog />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

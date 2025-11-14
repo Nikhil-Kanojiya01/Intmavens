@@ -435,6 +435,78 @@ p {
     color: var(--white);
 }
 
+/* Dropdown Container */
+.navigation .dropdown {
+    position: relative;
+}
+
+/* Dropdown Link with Arrow */
+.navigation .dropdown-link::after {
+    content: "▼";
+    font-size: 0.5rem;
+    padding: 0rem;
+    padding-left: 0.2rem;
+    border-radius: 3px;
+    color: var(--white);
+}
+
+.navigation .dropdown-link:hover::after {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% - 1px);
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    min-width: 250px;
+    box-shadow: var(--shadow-md);
+    border-radius: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(5px);
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Dropdown Menu Items */
+.dropdown-menu li {
+    margin: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    border-radius: 0;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(1, 32, 96, 0.1);
+    color: var(--primary);
+}
+
 .header-contact {
     display: flex;
     align-items: center;
@@ -779,7 +851,6 @@ p {
 .section--md { padding: 3rem 0; }
 .section--lg { padding: 5rem 0; }
 .section--xl { padding: 6rem 0; }
-
 .section--light { background: var(--light-bg); }
 .section--white { background: var(--white); }
 .section--primary { background: var(--primary); color: var(--white); }
@@ -2081,6 +2152,293 @@ p {
     box-shadow: var(--shadow-lg);
 }
 
+/* SERVICE PAGES STYLING
+   ==================== */
+.service-page {
+    min-height: 100vh;
+}
+
+/* Service Hero Section */
+.service-hero {
+    background: var(--light-bg);
+    padding: 4rem 0 2rem;
+    text-align: center;
+}
+
+.service-hero__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.service-hero__subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Service Content */
+.service-content {
+    padding: 4rem 0;
+    background: var(--white);
+}
+
+.service-content__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.service-section__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.service-section__title.center {
+    text-align: center;
+}
+
+.service-section__title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+}
+
+.service-section__title.center::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.service-feature {
+    margin-bottom: 1.5rem;
+}
+
+.service-feature h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.service-feature p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Service Images */
+.service-image-placeholder,
+.approach-image-placeholder,
+.multicloud-image-placeholder {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-variant) 100%);
+    border-radius: var(--radius-lg);
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-image-content,
+.multicloud-content {
+    z-index: 2;
+}
+
+.service-image-content h3,
+.multicloud-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.service-image-content p,
+.multicloud-content p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Service Approach */
+.service-approach {
+    padding: 4rem 0;
+    background: var(--light-bg);
+}
+
+.service-approach__intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-approach__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.cloud-icons {
+    display: flex;
+    gap: 1rem;
+    font-size: 2rem;
+}
+
+.approach-step {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.approach-step h4 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.approach-step p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Multi-Cloud Section */
+.service-multicloud {
+    padding: 4rem 0;
+    background: var(--white);
+}
+
+.service-multicloud__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.multicloud-features {
+    margin-top: 2rem;
+}
+
+.multicloud-feature {
+    margin-bottom: 1.5rem;
+}
+
+.multicloud-feature h4 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.multicloud-feature p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Service CTA */
+.service-cta {
+    padding: 4rem 0;
+    background: var(--primary);
+    color: var(--white);
+    text-align: center;
+}
+
+.service-cta__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.service-cta__text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Service Bottom */
+.service-bottom {
+    padding: 3rem 0;
+    background: var(--primary);
+    text-align: center;
+}
+
+.service-bottom__title {
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.service-bottom__badges {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.service-badge {
+    background: var(--white);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Service Image Styling */
+.service-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease;
+}
+
+.service-image:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive Design for Service Pages */
+@media (max-width: 768px) {
+    .service-content__grid,
+    .service-approach__grid,
+    .service-multicloud__grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .service-hero__title {
+        font-size: 2rem;
+    }
+
+    .service-section__title {
+        font-size: 1.5rem;
+    }
+
+    .service-bottom__badges {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
 /* 8. RESPONSIVE DESIGN (Mobile-first)
    =================================== */
