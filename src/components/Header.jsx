@@ -46,6 +46,16 @@ const Header = () => {
 									<li><Link to="/services/artificial-intelligence" onClick={() => setIsMobileMenuOpen(false)}>Artificial Intelligence</Link></li>
 									<li><Link to="/services/cloud-migration" onClick={() => setIsMobileMenuOpen(false)}>Cloud Migration</Link></li>
 									<li><Link to="/services/hybrid-cloud-integration" onClick={() => setIsMobileMenuOpen(false)}>Hybrid Cloud Integration</Link></li>
+									<li><Link to="/services/cloud-optimization" onClick={() => setIsMobileMenuOpen(false)}>Cloud Optimization</Link></li>
+									<li><Link to="/services/data-enablement-services" onClick={() => setIsMobileMenuOpen(false)}>Data Enablement Services</Link></li>
+									<li className="dropdown">
+										<Link to="/services/bizTalk-&-ais" className="dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>BizTalk & AIS</Link>
+										<ul className="dropdown-menu">
+											<li><Link to="/services/biztalk-azureintegrationservices-ais" onClick={() => setIsMobileMenuOpen(false)}>BizTalk Azure Integration Services</Link></li>
+											<li><Link to="/services/biztalk-health-check" onClick={() => setIsMobileMenuOpen(false)}>BizTalk Health Check</Link></li>
+											<li><Link to="/services/biztalk-modernization-assessment" onClick={() => setIsMobileMenuOpen(false)}>BizTalk Modernization Assessment</Link></li>
+										</ul>
+									</li>
 								</ul>
 							</li>
 							<li>

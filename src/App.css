@@ -473,6 +473,7 @@ p {
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(5px);
+    gap: 0 !important; /* Override the navigation ul gap for dropdown */
 }
 
 /* Show dropdown on hover */
@@ -483,31 +484,64 @@ p {
 
 /* Dropdown Menu Items */
 .dropdown-menu li {
-    margin: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+	margin: 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+	position: relative;
 }
 
 .dropdown-menu li:last-child {
-    border-bottom: none;
+	border-bottom: none;
 }
 
 .dropdown-menu a {
-    display: block;
-    padding: 0.75rem 1rem;
-    color: var(--text-primary);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: var(--font-size-sm);
-    border-radius: 0;
-    transition: background-color 0.2s ease;
+	display: block;
+	padding: 0.75rem 1rem;
+	color: var(--text-primary);
+	text-decoration: none;
+	font-weight: 500;
+	font-size: var(--font-size-sm);
+	border-radius: 0;
+	transition: background-color 0.2s ease;
 }
 
 .dropdown-menu a:hover {
-    background: rgba(1, 32, 96, 0.1);
-    color: var(--primary);
+	background: rgba(1, 32, 96, 0.1);
+	color: var(--primary);
 }
 
-.header-contact {
+/* Nested Dropdown Styles */
+.dropdown-menu .dropdown {
+	position: relative;
+}
+
+.dropdown-menu .dropdown-link::after {
+	content: "▶";
+	font-size: 0.4rem;
+	padding-left: 0.5rem;
+	color: var(--text-secondary);
+}
+
+.dropdown-menu .dropdown:hover .dropdown-link::after {
+	color: var(--primary);
+}
+
+/* Nested Dropdown Menu */
+.dropdown-menu .dropdown-menu {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	min-width: 280px;
+	margin-left: -1px;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 1001;
+}
+
+/* Show nested dropdown on hover */
+.dropdown-menu .dropdown:hover .dropdown-menu {
+	opacity: 1;
+	visibility: visible;
+}.header-contact {
     display: flex;
     align-items: center;
 }
@@ -784,7 +818,7 @@ p {
 
 /* Services */
 .services {
-    padding: 4rem 0;
+    padding: rem 0;
     background: var(--light-bg);
 }
 

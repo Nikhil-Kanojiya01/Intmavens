@@ -15,6 +15,11 @@ import ArtificialIntelligence from "./Pages/ArtificialIntelligence";
 import ApplicationModernization from "./Pages/ApplicationModernization";
 import "./App.css";
 import Testimonials from "./components/Testimonials";
+import CloudOptimization from "./Pages/CloudOptimization";
+import DataEnablementServices from "./Pages/DataEnablementServices";
+import BiztalkModernizationAssessment from "./Pages/BiztalkModernizationAssessment";
+import BiztalkHealthCheck from "./Pages/BiztalkHealthCheck";
+import BiztalkAzureintegrationservices from "./Pages/BiztalkAzureintegrationservices";
 
 const MainLayout = () => {
   useScrollToTop();
@@ -41,10 +46,39 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="services" element={<Services />} />
-          <Route path="services/hybrid-cloud-integration" element={<HybridCloudIntegration />} />
+          <Route
+            path="services/hybrid-cloud-integration"
+            element={<HybridCloudIntegration />}
+          />
           <Route path="services/cloud-migration" element={<CloudMigration />} />
-          <Route path="services/artificial-intelligence" element={<ArtificialIntelligence />} />
-          <Route path="services/application-modernization" element={<ApplicationModernization />} />
+          <Route
+            path="services/artificial-intelligence"
+            element={<ArtificialIntelligence />}
+          />
+          <Route
+            path="services/application-modernization"
+            element={<ApplicationModernization />}
+          />
+          <Route
+            path="services/data-enablement-services"
+            element={<DataEnablementServices />}
+          />
+          <Route
+            path="services/cloud-optimization"
+            element={<CloudOptimization />}
+          />
+          <Route
+            path="services/biztalk-azureintegrationservices-ais"
+            element={<BiztalkAzureintegrationservices />}
+          />
+          <Route
+            path="services/biztalk-health-check"
+            element={<BiztalkHealthCheck />}
+          />
+          <Route
+            path="services/biztalk-modernization-assessment"
+            element={<BiztalkModernizationAssessment />}
+          />
           <Route path="blog" element={<Blog />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
