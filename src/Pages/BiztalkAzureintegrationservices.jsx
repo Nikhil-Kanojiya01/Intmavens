@@ -6,7 +6,7 @@ const BiztalkAzureintegrationservices = () => {
 	return (
 		<div className="service-page">
 			{/* Hero Section */}
-			<section className="service-hero">
+			<section className="service-hero section--sm">
 				<div className="container">
 					<div className="service-hero__content">
 						<h1 className="service-hero__title">BizTalk to Azure Integration Services Migration</h1>
@@ -18,7 +18,7 @@ const BiztalkAzureintegrationservices = () => {
 			</section>
 
 			{/* Main Content Section */}
-			<section className="service-content">
+			<section className="service-content section--sm">
 				<div className="container">
 					<div className="service-content__grid">
 						<div className="service-content__text">
@@ -76,7 +76,7 @@ const BiztalkAzureintegrationservices = () => {
 			</section>
 
 			{/* BizTalk to Azure Integration Services Migration Section */}
-			<section className="service-multicloud">
+			<section className="service-multicloud section--sm">
 				<div className="container">
 					<div className="service-multicloud__grid">
 						<div className="service-content__image">
@@ -129,7 +129,7 @@ const BiztalkAzureintegrationservices = () => {
 			</section>
 
 			{/* Ready to Modernize Section */}
-			<section className="service-content">
+			<section className="service-content section--sm">
 				<div className="container">
 					<div className="u-text-center">
 						<h2 className="service-section__title center">Ready to Modernize Your Integration Infrastructure?</h2>

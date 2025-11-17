@@ -40,7 +40,7 @@ const Header = () => {
 								<Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
 							</li>
 							<li className="dropdown">
-								<Link to="/services" className="dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
+								<span className="dropdown-link">Services</span>
 								<ul className="dropdown-menu">
 									<li><Link to="/services/application-modernization" onClick={() => setIsMobileMenuOpen(false)}>Application Modernization</Link></li>
 									<li><Link to="/services/artificial-intelligence" onClick={() => setIsMobileMenuOpen(false)}>Artificial Intelligence</Link></li>
@@ -49,7 +49,7 @@ const Header = () => {
 									<li><Link to="/services/cloud-optimization" onClick={() => setIsMobileMenuOpen(false)}>Cloud Optimization</Link></li>
 									<li><Link to="/services/data-enablement-services" onClick={() => setIsMobileMenuOpen(false)}>Data Enablement Services</Link></li>
 									<li className="dropdown">
-										<Link to="/services/bizTalk-&-ais" className="dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>BizTalk & AIS</Link>
+										<span className="dropdown-link">BizTalk & AIS</span>
 										<ul className="dropdown-menu">
 											<li><Link to="/services/biztalk-azureintegrationservices-ais" onClick={() => setIsMobileMenuOpen(false)}>BizTalk Azure Integration Services</Link></li>
 											<li><Link to="/services/biztalk-health-check" onClick={() => setIsMobileMenuOpen(false)}>BizTalk Health Check</Link></li>

@@ -443,15 +443,30 @@ p {
 /* Dropdown Link with Arrow */
 .navigation .dropdown-link::after {
     content: "▼";
-    font-size: 0.5rem;
-    padding: 0rem;
-    padding-left: 0.2rem;
-    border-radius: 3px;
-    color: var(--white);
+    font-size: 0.6rem;
+    margin-left: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .navigation .dropdown-link:hover::after {
-    border-color: rgba(255, 255, 255, 0.5);
+    color: var(--white);
+}
+
+/* Span dropdown links styling - match dropdown menu items */
+.dropdown-menu span.dropdown-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    border-radius: 0;
+}
+
+.dropdown-menu span.dropdown-link:hover {
+    background: rgba(1, 32, 96, 0.1);
+    color: var(--primary);
 }
 
 /* Dropdown Menu */
@@ -477,12 +492,10 @@ p {
 }
 
 /* Show dropdown on hover */
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Dropdown Menu Items */
+.dropdown:hover > .dropdown-menu {
+	opacity: 1;
+	visibility: visible;
+}/* Dropdown Menu Items */
 .dropdown-menu li {
 	margin: 0;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -516,8 +529,8 @@ p {
 
 .dropdown-menu .dropdown-link::after {
 	content: "▶";
-	font-size: 0.4rem;
-	padding-left: 0.5rem;
+	font-size: 0.5rem;
+	margin-left: 0.5rem;
 	color: var(--text-secondary);
 }
 
@@ -538,7 +551,7 @@ p {
 }
 
 /* Show nested dropdown on hover */
-.dropdown-menu .dropdown:hover .dropdown-menu {
+.dropdown-menu .dropdown:hover > .dropdown-menu {
 	opacity: 1;
 	visibility: visible;
 }.header-contact {
@@ -2216,7 +2229,7 @@ p {
 
 /* Service Content */
 .service-content {
-    padding: 4rem 0;
+    padding: 1.5rem 0;
     background: var(--white);
 }
 
@@ -2231,7 +2244,7 @@ p {
     font-size: 2rem;
     font-weight: 700;
     color: var(--primary);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     position: relative;
 }
 
@@ -2255,10 +2268,6 @@ p {
     transform: translateX(-50%);
 }
 
-.service-feature {
-    margin-bottom: 1.5rem;
-}
-
 .service-feature h3 {
     color: var(--primary);
     margin-bottom: 0.5rem;
@@ -2269,6 +2278,20 @@ p {
     color: var(--text-secondary);
     line-height: 1.6;
     margin: 0;
+}
+
+.service-feature ul {
+    /* margin-left: 1.5rem; */
+    /* margin-bottom: 1rem; */
+    padding-left: 0;
+    list-style-type: disc;
+}
+
+.service-feature li {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    /* margin-bottom: 0.5rem; */
+    /* padding-left: 0.5rem; */
 }
 
 /* Service Images */
@@ -2363,7 +2386,7 @@ p {
 .service-multicloud__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 2rem;
     align-items: center;
 }
 
@@ -2385,6 +2408,18 @@ p {
     color: var(--text-secondary);
     line-height: 1.6;
     margin: 0;
+}
+
+.multicloud-feature ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    padding-left: 0;
+    list-style-type: disc;
+}
+
+.multicloud-feature li {
+    color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 /* Service CTA */
@@ -2440,9 +2475,125 @@ p {
 /* Service Image Styling */
 .service-image {
     width: 100%;
-    height: 400px;
     object-fit: cover;
     box-shadow: var(--shadow-md);
+}
+
+/* General Service Page List Styling */
+.service-page ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    padding-left: 0;
+    list-style-type: disc;
+}
+
+.service-page li {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* BizTalk Health Check Specific Styles */
+.health-check-diagram {
+    margin: 2rem 0;
+}
+
+.health-check-column {
+    text-align: left;
+}
+
+.health-check-column__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.health-check-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.health-check-list li {
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+    border-bottom: 1px solid #eee;
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    padding-left: 0.5rem;
+}
+
+.health-check-list li:last-child {
+    border-bottom: none;
+}
+
+/* Timeline Cards */
+.timeline-cards {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    min-width: 220px;
+    flex: 1;
+    max-width: 280px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.timeline-card__header {
+    padding: 0.8rem 1rem;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.timeline-card--day1 .timeline-card__header {
+    background: #1e3a8a; /* Dark blue */
+}
+
+.timeline-card--day2 .timeline-card__header {
+    background: #f59e0b; /* Amber/Gold */
+}
+
+.timeline-card--day3 .timeline-card__header {
+    background: #1e3a8a; /* Dark blue */
+}
+
+.timeline-card__content {
+    padding: 1.2rem 1rem;
+    background: white;
+}
+
+.timeline-card__content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.timeline-card__content li {
+    padding: 0.4rem 0;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.timeline-card__content li::before {
+    content: '•';
+    color: var(--text-secondary);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 /* Responsive Design for Service Pages */
@@ -2465,6 +2616,21 @@ p {
     .service-bottom__badges {
         flex-direction: column;
         align-items: center;
+    }
+
+    .timeline-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .timeline-card {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .grid--3 {
+        grid-template-columns: 1fr;
     }
 }
 
