@@ -8,10 +8,10 @@ const BiztalkModernizationAssessment = () => {
       <section className="service-hero section--sm">
         <div className="container">
           <div className="service-hero__content">
-            <h1 className="service-hero__title">
+            <h1 className="service-hero__title animate-slide-up-title">
               BizTalk Modernization Assessment
             </h1>
-            <p className="service-hero__subtitle">
+            <p className="service-hero__subtitle animate-slide-up-delay-1">
               Gain valuable insights into BizTalk Migration Readiness to Cloud.
               Aims to propose Modernisation plan and possible paths/options in
               compliance to Well Architecture Framework (WAF) guidelines.
@@ -24,16 +24,16 @@ const BiztalkModernizationAssessment = () => {
       <section className="service-content section--light section--sm">
         <div className="container">
           <div className="u-text-center">
-            <h2 className="service-section__title center">
+            <h2 className="service-section__title center animate-slide-up-title">
               AIS Migration Focus Areas
             </h2>
-            <p className="service-hero__subtitle">
+            <p className="service-hero__subtitle animate-slide-up-delay-1">
               Our comprehensive assessment evaluates your current{" "}
               <span style={{ color: "var(--primary)" }}>BizTalk</span>{" "}
               environment and provides strategic modernization pathways to Azure
               Integration Services.
             </p>
-            <div className="health-check-diagram">
+            <div className="health-check-diagram animate-slide-up-delay-2">
               <img
                 src={modernizationImage}
                 alt="BizTalk Modernization Assessment Focus Areas"
@@ -49,9 +49,11 @@ const BiztalkModernizationAssessment = () => {
       <section className="service-content section--sm">
         <div className="container">
           <div className="u-text-center">
-            <h2 className="service-section__title center">Objectives</h2>
+            <h2 className="service-section__title center animate-slide-up-title">
+              Objectives
+            </h2>
             <p
-              className="service-hero__subtitle"
+              className="service-hero__subtitle animate-slide-up-delay-1"
               style={{ maxWidth: "800px", margin: "0 auto" }}
             >
               Evaluate your BizTalk workloads and set up to understand best
@@ -67,7 +69,9 @@ const BiztalkModernizationAssessment = () => {
       <section className="service-content section--light section--sm">
         <div className="container">
           <div className="u-text-center">
-            <h2 className="service-section__title center">How it Works?</h2>
+            <h2 className="service-section__title center animate-slide-up-title">
+              How it Works?
+            </h2>
 
             <div
               className="grid grid--3 grid--gap-lg"
@@ -110,7 +114,9 @@ const BiztalkModernizationAssessment = () => {
       <section className="service-content section--sm">
         <div className="container">
           <div className="u-text-center">
-            <h2 className="service-section__title center">Timelines</h2>
+            <h2 className="service-section__title center animate-slide-up-title">
+              Timelines
+            </h2>
 
             <div
               className="timeline-cards"

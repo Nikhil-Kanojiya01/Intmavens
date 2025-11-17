@@ -829,6 +829,55 @@ p {
     }
 }
 
+/* Service Page Animations */
+@keyframes slideUpFromBottom {
+	from {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideUpTitle {
+	from {
+		opacity: 0;
+		transform: translateY(60px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Animation utility classes */
+.animate-slide-up {
+	animation: slideUpFromBottom 0.8s ease-out forwards;
+	opacity: 0;
+}
+
+.animate-slide-up-title {
+	animation: slideUpTitle 1s ease-out forwards;
+	opacity: 0;
+}
+
+.animate-slide-up-delay-1 {
+	animation: slideUpFromBottom 0.8s ease-out 0.2s forwards;
+	opacity: 0;
+}
+
+.animate-slide-up-delay-2 {
+	animation: slideUpFromBottom 0.8s ease-out 0.4s forwards;
+	opacity: 0;
+}
+
+.animate-slide-up-delay-3 {
+	animation: slideUpFromBottom 0.8s ease-out 0.6s forwards;
+	opacity: 0;
+}
+
 /* Services */
 .services {
     padding: rem 0;
@@ -2223,13 +2272,13 @@ p {
     font-size: 1.1rem;
     line-height: 1.6;
     color: var(--text-secondary);
-    max-width: 900px;
-    margin: 0 auto;
+    /* max-width: 900px; */
+    margin: 1rem auto;
 }
 
 /* Service Content */
 .service-content {
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     background: var(--white);
 }
 
@@ -2379,7 +2428,7 @@ p {
 
 /* Multi-Cloud Section */
 .service-multicloud {
-    padding: 4rem 0;
+    padding: 1rem 0;
     background: var(--white);
 }
 
