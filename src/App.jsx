@@ -6,7 +6,7 @@ import { useScrollToTop } from "./utils/scrollToTop";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Services from "./Pages/Services";
-import Blog from "./Pages/Blog";
+import Blog from "./Pages/BlogPage";
 import Contact from "./Pages/Contact";
 import NotFound from "./Pages/NotFound";
 import HybridCloudIntegration from "./Pages/HybridCloudIntegration";
@@ -20,6 +20,7 @@ import DataEnablementServices from "./Pages/DataEnablementServices";
 import BiztalkModernizationAssessment from "./Pages/BiztalkModernizationAssessment";
 import BiztalkHealthCheck from "./Pages/BiztalkHealthCheck";
 import BiztalkAzureintegrationservices from "./Pages/BiztalkAzureintegrationservices";
+import BlogPage from "./Pages/BlogPage";
 
 const MainLayout = () => {
   useScrollToTop();
@@ -79,7 +80,7 @@ const App = () => {
             path="services/biztalk-modernization-assessment"
             element={<BiztalkModernizationAssessment />}
           />
-          <Route path="blog" element={<Blog />} />
+          <Route path="resources/blogs" element={<BlogPage />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>

@@ -40,7 +40,7 @@ const Header = () => {
 								<Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
 							</li>
 							<li className="dropdown">
-								<span className="dropdown-link">Services</span>
+								<span className="dropdown-link">Services<span>▼</span></span>
 								<ul className="dropdown-menu">
 									<li><Link to="/services/application-modernization" onClick={() => setIsMobileMenuOpen(false)}>Application Modernization</Link></li>
 									<li><Link to="/services/artificial-intelligence" onClick={() => setIsMobileMenuOpen(false)}>Artificial Intelligence</Link></li>
@@ -58,12 +58,12 @@ const Header = () => {
 									</li>
 								</ul>
 							</li>
-							<li>
-								<Link to="/blog" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link>
-							</li>
-							<li>
-								<Link to="/resources" onClick={() => setIsMobileMenuOpen(false)}>Resources</Link>
-							</li>
+							<li className="dropdown dropdown--manual"><span className="dropdown-link">Resources<span>▼</span></span>
+                                <ul className="dropdown-menu">
+                                    <li><Link to="/resources/blogs" onClick={() => setIsMobileMenuOpen(false)}>Blogs</Link></li>
+                                    <li><Link to="/resources/case-studies" onClick={() => setIsMobileMenuOpen(false)}>Case Studies</Link></li>
+                                </ul>
+                              </li>
 							<li>
 								<Link to="/career" onClick={() => setIsMobileMenuOpen(false)}>Career</Link>
 							</li>
