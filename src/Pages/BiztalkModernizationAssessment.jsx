@@ -1,164 +1,122 @@
-import React from "react";
-import modernizationImage from "../assets/images/biztalk-modernization-assessment.jpg";
+import { useState } from "react";
+import { blogPosts } from "../data/blogPosts";
+import Search from "../components/Search";
+import Categories from "../components/Categories"; // Import the Categories component
 
-const BiztalkModernizationAssessment = () => {
+const BlogPage = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  // Get unique categories from blog posts
+  const categories = [
+    "All",
+    ...new Set(blogPosts.map((post) => post.category)),
+  ];
+
+  // Filter posts based on search and category
+  const filteredPosts = blogPosts.filter((post) => {
+    const matchesSearch =
+      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory =
+      selectedCategory === "All" || post.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
+
+  // Handle search from Search component
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
+
+  // Handle category selection from Categories component
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+  };
+
   return (
-    <div className="service-page">
-      {/* Hero Section */}
-      <section className="service-hero section--sm">
+    <div className="blog-page">
+      {/* Blog Content */}
+      <section className="blog-content">
         <div className="container">
-          <div className="service-hero__content">
-            <h1 className="service-hero__title animate-slide-up-title">
-              BizTalk Modernization Assessment
-            </h1>
-            <p className="service-hero__subtitle animate-slide-up-delay-1">
-              Gain valuable insights into BizTalk Migration Readiness to Cloud.
-              Aims to propose Modernisation plan and possible paths/options in
-              compliance to Well Architecture Framework (WAF) guidelines.
-            </p>
-          </div>
-        </div>
-      </section>
+          <div className="blog-layout">
+            {/* Main Content */}
+            <div className="blog-main">
+              {/* Blog Header */}
+              <section className="blog-hero section--sm">
+                <div className="container">
+                  <div className="u-text-center">
+                    <h1 className="blog-hero__title">Our Latest Blog</h1>
+                    <div className="blog-hero__underline"></div>
+                  </div>
+                </div>
+              </section>
+              <div className="blog-grid">
+                {filteredPosts.map((post) => (
+                  <article key={post.id} className="blog-card">
+                    <div className="blog-card__image">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="blog-card__img"
+                      />
+                      <div className="blog-card__overlay">
+                        <span className="blog-card__category">
+                          {post.category}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="blog-card__content">
+                      <h3 className="blog-card__title">{post.title}</h3>
+                      <p className="blog-card__excerpt">{post.excerpt}</p>
+                      <div className="blog-card__meta">
+                        <span className="blog-card__date">{post.date}</span>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
 
-      {/* AIS Migration Focus Areas Section */}
-      <section className="service-content section--light section--sm">
-        <div className="container">
-          <div className="u-text-center">
-            <h2 className="service-section__title center animate-slide-up-title">
-              AIS Migration Focus Areas
-            </h2>
-            <p className="service-hero__subtitle animate-slide-up-delay-1">
-              Our comprehensive assessment evaluates your current{" "}
-              <span style={{ color: "var(--primary)" }}>BizTalk</span>{" "}
-              environment and provides strategic modernization pathways to Azure
-              Integration Services.
-            </p>
-            <div className="health-check-diagram animate-slide-up-delay-2">
-              <img
-                src={modernizationImage}
-                alt="BizTalk Modernization Assessment Focus Areas"
-                className="service-image"
-                style={{ maxWidth: "70%", height: "auto" }}
+              {/* No Results Message */}
+              {filteredPosts.length === 0 && (
+                <div className="no-results">
+                  <h3>No posts found</h3>
+                  <p>Try adjusting your search or category filter.</p>
+                </div>
+              )}
+            </div>
+
+            {/* Sidebar */}
+            <aside className="blog-sidebar">
+              {/* Search Component */}
+              <Search 
+                onSearch={handleSearch}
+                placeholder="Search blog posts..."
               />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Objectives Section */}
-      <section className="service-content section--sm">
-        <div className="container">
-          <div className="u-text-center">
-            <h2 className="service-section__title center animate-slide-up-title">
-              Objectives
-            </h2>
-            <p
-              className="service-hero__subtitle animate-slide-up-delay-1"
-              style={{ maxWidth: "800px", margin: "0 auto" }}
-            >
-              Evaluate your BizTalk workloads and set up to understand best
-              possible Migration Path. Get recommendations and assistance to
-              reduce the downtime and risks to your service in Production and
-              optimize performance in cost effective manner.
-            </p>
-          </div>
-        </div>
-      </section>
+              {/* Categories Component */}
+              <Categories 
+                categories={categories}
+                selectedCategory={selectedCategory}
+                onCategorySelect={handleCategorySelect}
+                showCounts={true}
+                blogPosts={blogPosts}
+              />
 
-      {/* How It Works Section */}
-      <section className="service-content section--light section--sm">
-        <div className="container">
-          <div className="u-text-center">
-            <h2 className="service-section__title center animate-slide-up-title">
-              How it Works?
-            </h2>
-
-            <div
-              className="grid grid--3 grid--gap-lg"
-              style={{ marginTop: "3rem" }}
-            >
-              <div className="health-check-column">
-                <h3 className="health-check-column__title">Stakeholders</h3>
-                <ul className="health-check-list">
-                  <li>BizTalk Admin</li>
-                  <li>Integration Lead/Architect</li>
-                  <li>Business Managers</li>
-                  <li>Leadership Team</li>
-                </ul>
-              </div>
-
-              <div className="health-check-column">
-                <h3 className="health-check-column__title">Data Collected</h3>
-                <ul className="health-check-list">
-                  <li>BHM Report</li>
-                  <li>BizTalk Documenter</li>
-                  <li>Dependency Analysis</li>
-                  <li>Known Issues and bottlenecks</li>
-                  <li>Endpoints</li>
-                </ul>
-              </div>
-
-              <div className="health-check-column">
-                <h3 className="health-check-column__title">Deliverables</h3>
-                <ul className="health-check-list">
-                  <li>Presentation on Migration Paths & Plan</li>
-                  <li>Landing Zone Guidelines and best practices</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Timelines Section */}
-      <section className="service-content section--sm">
-        <div className="container">
-          <div className="u-text-center">
-            <h2 className="service-section__title center animate-slide-up-title">
-              Timelines
-            </h2>
-
-            <div
-              className="timeline-cards"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: "2rem",
-                marginTop: "3rem",
-                flexWrap: "wrap",
-              }}
-            >
-              <div className="timeline-card timeline-card--day1">
-                <div className="timeline-card__header">Day1</div>
-                <div className="timeline-card__content">
-                  <ul>
-                    <li>Introduction</li>
-                    <li>Discussion with Stakeholders</li>
-                    <li>Data collection</li>
-                  </ul>
+              {/* Recent Posts */}
+              <div className="sidebar-widget">
+                <h3 className="widget-title">Recent Posts</h3>
+                <div className="recent-posts">
+                  {blogPosts.slice(0, 5).map((post) => (
+                    <div key={post.id} className="recent-post">
+                      <div className="recent-post__content">
+                        <h4 className="recent-post__title">{post.title}</h4>
+                        <span className="recent-post__date">{post.date}</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-
-              <div className="timeline-card timeline-card--day2">
-                <div className="timeline-card__header">Day2</div>
-                <div className="timeline-card__content">
-                  <ul>
-                    <li>Data Analysis</li>
-                    <li>Report Creation</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="timeline-card timeline-card--day3">
-                <div className="timeline-card__header">Day3</div>
-                <div className="timeline-card__content">
-                  <ul>
-                    <li>Insights Presentation</li>
-                    <li>Migration Plan/Paths</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -166,4 +124,4 @@ const BiztalkModernizationAssessment = () => {
   );
 };
 
-export default BiztalkModernizationAssessment;
+export default BlogPage;

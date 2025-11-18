@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Search = ({ onSearch }) => {
+const Search = ({ onSearch, placeholder = "Search..." }) => {
     const [searchTerm, setSearchTerm] = useState('')
 
     const handleSearch = (e) => {
@@ -11,25 +11,32 @@ const Search = ({ onSearch }) => {
     }
 
     const handleInputChange = (e) => {
-        setSearchTerm(e.target.value)
+        const value = e.target.value
+        setSearchTerm(value)
         if (onSearch) {
-            onSearch(e.target.value)
+            onSearch(value) // Real-time search as user types
         }
     }
 
     return (
         <div className="sidebar-widget">
             <h3 className="widget-title">Search</h3>
-            <form onSubmit={handleSearch} className="search-widget">
+            <div className="search-widget">
                 <input
                     type="text"
-                    placeholder="Search..."
+                    placeholder={placeholder}
                     value={searchTerm}
                     onChange={handleInputChange}
                     className="search-input"
                 />
-                <button type="submit" className="search-btn">Search</button>
-            </form>
+                <button 
+                    onClick={handleSearch}
+                    className="search-btn"
+                    type="button"
+                >
+                    Search
+                </button>
+            </div>
         </div>
     )
 }

@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { blogPosts } from "../data/blogPosts";
+import Search from "../components/Search";
+import RecentPosts from "../components/RecentPost"; // Import the RecentPosts component
+import Categories from "../components/Categories";
 
 const BlogPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -21,10 +24,20 @@ const BlogPage = () => {
     return matchesSearch && matchesCategory;
   });
 
+  // Handle search from Search component
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
+
+  // Handle category selection
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <div className="blog-page">
       {/* Blog Content */}
-      <section className="blog-content section--sm">
+      <section className="blog-content">
         <div className="container">
           <div className="blog-layout">
             {/* Main Content */}
@@ -63,58 +76,33 @@ const BlogPage = () => {
                   </article>
                 ))}
               </div>
+
+              {/* No Results Message */}
+              {filteredPosts.length === 0 && (
+                <div className="no-results">
+                  <h3>No posts found</h3>
+                  <p>Try adjusting your search or category filter.</p>
+                </div>
+              )}
             </div>
 
             {/* Sidebar */}
             <aside className="blog-sidebar">
-              {/* Search */}
-              <div className="sidebar-widget">
-                <h3 className="widget-title">Search</h3>
-                <div className="search-widget">
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="search-input"
-                  />
-                  <button className="search-btn">Search</button>
-                </div>
-              </div>
+              {/* Search Component */}
+              <Search
+                onSearch={handleSearch}
+                placeholder="Search blog posts..."
+              />
 
-              {/* Categories */}
-              <div className="sidebar-widget">
-                <h3 className="widget-title">Categories</h3>
-                <ul className="categories-list">
-                  {categories.map((category) => (
-                    <li key={category}>
-                      <button
-                        onClick={() => setSelectedCategory(category)}
-                        className={`category-link ${
-                          selectedCategory === category ? "active" : ""
-                        }`}
-                      >
-                        {category}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {/* Categories Component */}
+              <Categories
+                categories={categories}
+                selectedCategory={selectedCategory}
+                onCategorySelect={handleCategorySelect}
+              />
 
-              {/* Recent Posts */}
-              <div className="sidebar-widget">
-                <h3 className="widget-title">Recent Posts</h3>
-                <div className="recent-posts">
-                  {blogPosts.slice(0, 5).map((post) => (
-                    <div key={post.id} className="recent-post">
-                      <div className="recent-post__content">
-                        <h4 className="recent-post__title">{post.title}</h4>
-                        <span className="recent-post__date">{post.date}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              {/* Recent Posts Component */}
+              <RecentPosts posts={blogPosts} limit={5} />
             </aside>
           </div>
         </div>
