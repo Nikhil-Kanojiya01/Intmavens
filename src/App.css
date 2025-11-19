@@ -39,12 +39,6 @@
     --space-2xl: 48px;
     --space-3xl: 64px;
 
-    /* Breakpoints */
-    --breakpoint-xs: 575px;
-    --breakpoint-sm: 768px;
-    --breakpoint-md: 992px;
-    --breakpoint-lg: 1200px;
-
     /* Shadows */
     --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
     --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.08);
@@ -108,7 +102,7 @@ body {
 .container {
     /* max-width: var(--container-width); */
     margin: 0 auto;
-    padding: 0 var(--space-m);
+    /* padding: 0 var(--space-m); */
 }
 /* 4. TYPOGRAPHY
    ============= */
@@ -374,9 +368,7 @@ p {
     top: 0;
     z-index: 1000;
     color: var(--white);
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
+    width: 100%;
 }
 
 .logo-image {
@@ -398,6 +390,10 @@ p {
     gap: 1rem;
     padding: 0.75rem 0;
     position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
 }
 
 .logo h1 {
@@ -661,6 +657,7 @@ p {
 
 .hero .hero-copy {
     flex: 1;
+    max-width: 60%; /* Add this line */
     animation: slideInLeft 0.8s ease-out 0.2s both;
 }
 
@@ -691,6 +688,7 @@ p {
     line-height: 1.6;
     color: var(--text-secondary);
     margin-bottom: 2rem;
+    text-align: justify;
 }
 
 .hero .hero-cta {
@@ -701,14 +699,15 @@ p {
 }
  .hero .hero-visual {
      width: 420px;
-     max-width: 45%;
-     border-radius: 16px;
-     box-shadow: 
-         0 20px 60px rgba(1, 32, 96, 0.12),
-         0 8px 32px rgba(0, 163, 180, 0.08);
-     position: relative;
-     animation: slideInRight 0.8s ease-out 0.4s both;
-     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 40%; /* Change from 45% to 50% */
+    flex: 1; /* Add this line */
+    border-radius: 16px;
+    box-shadow: 
+        0 20px 60px rgba(1, 32, 96, 0.12),
+        0 8px 32px rgba(0, 163, 180, 0.08);
+    position: relative;
+    animation: slideInRight 0.8s ease-out 0.4s both;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero .hero-visual:hover {
@@ -919,10 +918,10 @@ p {
 .services__subtitle {
     text-align: justify;
     text-justify: inter-word;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto 3rem;
     font-size: var(--font-size-base);
-    line-height: 1.4;
+    line-height: 1.5;
     color: var(--text-primary);
     padding: 0 1rem;
     font-weight: 400;
@@ -2990,7 +2989,7 @@ p {
 @media (max-width: 1200px) {
     /* Ensure hamburger is hidden on larger screens */
     .hamburger {
-        display: none !important;
+        display: none;
     }
     
     /* Ensure navigation is visible on desktop/tablet */
@@ -3202,7 +3201,7 @@ p {
 
     /* Header - Show hamburger menu on tablet/mobile */
     .hamburger {
-        display: flex;
+        display: flex !important;
         order: 2;
     }
 
@@ -3219,8 +3218,9 @@ p {
     .header .header-content {
         justify-content: space-between;
         align-items: center;
-        padding: 0.75rem 0;
+        padding: 0.75rem var(--space-m);
         position: relative;
+        max-width: none;
     }
 
     .logo-image { 
@@ -3239,8 +3239,12 @@ p {
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
-        z-index: 1000;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 999;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        margin: 0;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
     }
 
     .navigation--open {
@@ -3272,10 +3276,33 @@ p {
         width: 100%;
         text-align: left;
         color: var(--white);
+        min-height: 44px; /* Touch-friendly target size */
+        display: flex;
+        align-items: center;
     }
 
-    .navigation a:hover {
+    .navigation a:hover,
+    .navigation a:focus {
         background: rgba(255,255,255,0.1);
+        outline: none;
+    }
+
+    /* Mobile dropdown handling */
+    .navigation .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        background: rgba(0, 0, 0, 0.1);
+        transform: none;
+        box-shadow: none;
+        border: none;
+        margin-left: var(--space-m);
+    }
+
+    .navigation .dropdown-menu a {
+        padding-left: var(--space-l);
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.05);
     }
 
     /* Hero section adjustments */
@@ -3723,6 +3750,11 @@ p {
 
 /* Small mobile (480px and below) */
 @media (max-width: 480px) {
+    /* Prevent horizontal scroll on small screens */
+    body {
+        overflow-x: hidden;
+    }
+
     /* Typography for small mobile */
     h1 { font-size: 1.5rem; }
     h2 { font-size: 1.25rem; }
@@ -3736,8 +3768,9 @@ p {
 
     /* Header adjustments for small screens */
     .header .header-content {
-        padding: 0.5rem 0;
+        padding: 0.5rem var(--space-s);
         gap: 0.5rem;
+        max-width: none;
     }
     
     .logo-image {

@@ -68,7 +68,10 @@ const BlogPage = () => {
                     </div>
                     <div className="blog-card__content">
                       <h3 className="blog-card__title">{post.title}</h3>
-                      <p className="blog-card__excerpt">{post.excerpt}</p>
+                      <p className="blog-card__excerpt">
+                        {post.excerpt.split(" ").slice(0, 15).join(" ")}
+                        {post.excerpt.split(" ").length > 15 && "..."}
+                      </p>
                       <div className="blog-card__meta">
                         <span className="blog-card__date">{post.date}</span>
                       </div>

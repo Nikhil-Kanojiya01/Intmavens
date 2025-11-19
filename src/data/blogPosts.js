@@ -2,7 +2,7 @@ export const blogPosts = [
 	{
 		id: 1,
 		title: 'Logic Apps – Creating Log Analytics based Alerts and Monitoring',
-		excerpt: 'This blog documents how to create/configure Log Analytics based Alert and Monitoring solutions',
+		excerpt: 'This blog documents  cgdcghvdhvhjdeev nef efvbhe f ef  gfrvbn fr hgf bn f hr bnfr h fbvh deb bcf hjfvg fd gbdf hjfc jn how to create/configure Log Analytics based Alert and Monitoring solutions',
 		category: 'Azure Monitor',
 		date: 'August 18, 2023',
 		slug: 'logicapps-creating-loganalytics-based-alerts-and-monitoring',
@@ -80,7 +80,7 @@ export const caseStudies = [
         category: "CASE STUDIES",
         date: "December 27, 2023"
     },
-	
+
     {
         id: 6,
         title: "Azure Synapse Pipeline's Proactive Monitoring and Alerting",
