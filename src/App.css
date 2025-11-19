@@ -371,7 +371,6 @@ main[role="main"] {
 
 .dropdown-menu span.dropdown-link:hover {
     background: rgba(1, 32, 96, 0.1);
-    color: var(--primary);
 }
 
 /* Dropdown Menu */
@@ -432,15 +431,38 @@ main[role="main"] {
 	position: relative;
 }
 
-.dropdown-menu .dropdown-link::after {
+/* Nested dropdown link styling */
+.dropdown-menu .dropdown-link {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.75rem 1rem;
+	color: var(--text-primary);
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: 500;
+	font-size: var(--font-size-sm);
+	border-radius: 0;
+	transition: background-color 0.2s ease;
+}
+
+.dropdown-menu .dropdown-link:hover {
+	background: rgba(1, 32, 96, 0.1);
+	color: var(--primary);
+}
+
+.dropdown-menu .dropdown-link span {
 	content: "▶";
 	font-size: 0.5rem;
 	margin-left: 0.5rem;
-	color: var(--text-secondary);
+	color: var(--white);
+	transition: all 0.2s ease;
+	display: inline-block;
 }
 
-.dropdown-menu .dropdown:hover .dropdown-link::after {
-	color: var(--primary);
+.dropdown-menu .dropdown:hover .dropdown-link span {
+	color: var(--white);
+	transform: rotate(90deg);
 }
 
 /* Nested Dropdown Menu */
@@ -453,6 +475,7 @@ main[role="main"] {
 	opacity: 0;
 	visibility: hidden;
 	z-index: 1001;
+	transition: all 0.3s ease;
 }
 
 /* Show nested dropdown on hover */
@@ -3319,46 +3342,78 @@ main[role="main"] {
         transform: translateX(6px);
     }
 
-    /* Nested dropdown styles */
+    /* Mobile nested dropdown styles */
     .navigation .dropdown-menu .dropdown {
         position: relative;
+        width: 100%;
     }
 
+    /* Mobile nested dropdown link */
+    .navigation .dropdown-menu .dropdown-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--white);
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .navigation .dropdown-menu .dropdown-link:hover {
+        transform: translateX(4px);
+    }
+
+    .navigation .dropdown-menu .dropdown-link span {
+        font-size: 0.7rem;
+        transition: transform 0.3s ease;
+        opacity: 0.8;
+    }
+
+    /* Nested dropdown menu container */
     .navigation .dropdown-menu .dropdown-menu {
-        background: rgba(0, 0, 0, 0.25);
+        background: rgba(0, 0, 0, 0.3);
         margin-left: 0;
+        margin-top: 0;
         opacity: 0;
         visibility: hidden;
         max-height: 0;
         overflow: hidden;
-        transition: all 0.3s ease;
+        transition: all 0.4s ease;
+        border-top: 1px solid rgba(255,255,255,0.1);
     }
 
+    /* Show nested dropdown when parent has open class */
     .navigation .dropdown-menu .dropdown--open .dropdown-menu {
         opacity: 1;
         visibility: visible;
-        max-height: 300px;
+        max-height: 250px;
     }
 
+    /* Nested dropdown items */
     .navigation .dropdown-menu .dropdown-menu a {
-        padding-left: calc(var(--space-m) + 40px);
+        padding: 12px var(--space-m) 12px calc(var(--space-m) + 24px);
         font-size: 0.85rem;
-        background: rgba(255, 255, 255, 0.02);
+        background: rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        position: relative;
     }
 
     .navigation .dropdown-menu .dropdown-menu a::after {
-        left: calc(var(--space-m) + 20px);
-        background: rgba(255,255,255,0.2);
+        left: calc(var(--space-m) + 8px);
+        background: rgba(255,255,255,0.4);
+        width: 2px;
+        height: 16px;
+    }
+
+    .navigation .dropdown-menu .dropdown-menu a:hover {
+        background: rgba(255, 255, 255, 0.12);
+        transform: translateX(8px);
     }
 
     /* Nested dropdown arrow rotation */
     .navigation .dropdown-menu .dropdown--open .dropdown-link span {
         transform: rotate(180deg);
-    }
-
-    .navigation .dropdown-menu .dropdown-link span {
-        display: inline-block;
-        transition: transform 0.3s ease;
+        opacity: 1;
     }
 
     /* Hero section adjustments */
