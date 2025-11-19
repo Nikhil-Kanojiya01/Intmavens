@@ -30,9 +30,6 @@ const Blog = () => {
 								</div>
 								<h3 className="blog__card-title">{post.title}</h3>
 								<p className="blog__card-excerpt">{post.excerpt}</p>
-								<a href={`/${post.slug}`} className="blog__card-link">
-									Read More →
-								</a>
 							</div>
 						</article>
 					))}

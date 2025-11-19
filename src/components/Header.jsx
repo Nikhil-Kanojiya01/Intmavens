@@ -4,14 +4,54 @@ import logo from '../assets/images/logo-300x180.png'
 
 const Header = () => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+	const [openDropdowns, setOpenDropdowns] = useState(new Set())
 	const headerRef = useRef(null)
 
-	const toggleMobileMenu = () => {
-		setIsMobileMenuOpen(!isMobileMenuOpen)
+	const toggleMobileMenu = (e) => {
+		console.log('Hamburger clicked!', 'Current state:', isMobileMenuOpen, 'New state:', !isMobileMenuOpen)
+		if (e) {
+			e.preventDefault()
+			e.stopPropagation()
+		}
+		setIsMobileMenuOpen(prevState => {
+			console.log('State changing from', prevState, 'to', !prevState)
+			return !prevState
+		})
+		// Close all dropdowns when closing mobile menu
+		if (isMobileMenuOpen) {
+			setOpenDropdowns(new Set())
+		}
+	}
+
+	const toggleDropdown = (dropdownId, e) => {
+		if (e) {
+			e.preventDefault()
+			e.stopPropagation()
+		}
+		
+		// Only handle dropdown toggle on mobile screens
+		if (window.innerWidth <= 768) {
+			setOpenDropdowns(prev => {
+				const newSet = new Set(prev)
+				if (newSet.has(dropdownId)) {
+					newSet.delete(dropdownId)
+				} else {
+					newSet.add(dropdownId)
+				}
+				return newSet
+			})
+		}
+	}
+
+	// Alternative handler for debugging
+	const handleHamburgerClick = (e) => {
+		console.log('Alternative handler triggered')
+		toggleMobileMenu(e)
 	}
 
 	const closeMobileMenu = () => {
 		setIsMobileMenuOpen(false)
+		setOpenDropdowns(new Set()) // Close all dropdowns when mobile menu closes
 	}
 
 	// Close mobile menu when clicking outside
@@ -59,17 +99,36 @@ const Header = () => {
 
 					{/* Hamburger Menu Button */}
 					<button 
+						type="button"
 						className={`hamburger ${isMobileMenuOpen ? 'hamburger--active' : ''}`}
-						onClick={toggleMobileMenu}
+						onClick={handleHamburgerClick}
+						onMouseDown={toggleMobileMenu}
+						onTouchStart={toggleMobileMenu}
+						onKeyDown={(e) => {
+							if (e.key === 'Enter' || e.key === ' ') {
+								e.preventDefault()
+								toggleMobileMenu(e)
+							}
+						}}
 						aria-label="Toggle navigation menu"
 						aria-expanded={isMobileMenuOpen}
+						aria-controls="main-navigation"
+						tabIndex={0}
+						style={{ pointerEvents: 'auto', zIndex: 1003 }}
 					>
-						<span className="hamburger__line"></span>
-						<span className="hamburger__line"></span>
-						<span className="hamburger__line"></span>
+						{isMobileMenuOpen ? (
+							<i className="fa-solid fa-xmark" style={{ pointerEvents: 'none' }}></i>
+						) : (
+							<i className="fa-solid fa-bars" style={{ pointerEvents: 'none' }}></i>
+						)}
 					</button>
 
-					<nav className={`navigation ${isMobileMenuOpen ? 'navigation--open' : ''}`} aria-label="Main navigation">
+					<nav 
+						id="main-navigation"
+						className={`navigation ${isMobileMenuOpen ? 'navigation--open' : ''}`} 
+						aria-label="Main navigation"
+						aria-hidden={!isMobileMenuOpen}
+					>
 						<ul>
 							<li>
 								<Link to="/" onClick={closeMobileMenu}>Home</Link>
@@ -77,8 +136,20 @@ const Header = () => {
 							<li>
 								<Link to="/about" onClick={closeMobileMenu}>About Us</Link>
 							</li>
-							<li className="dropdown">
-								<span className="dropdown-link">Services<span>▼</span></span>
+							<li className={`dropdown ${openDropdowns.has('services') ? 'dropdown--open' : ''}`}>
+								<span 
+									className="dropdown-link" 
+									onClick={(e) => toggleDropdown('services', e)}
+									role="button"
+									tabIndex={0}
+									onKeyDown={(e) => {
+										if (e.key === 'Enter' || e.key === ' ') {
+											toggleDropdown('services', e)
+										}
+									}}
+								>
+									Services<span>▼</span>
+								</span>
 								<ul className="dropdown-menu">
 									<li><Link to="/services/application-modernization" onClick={closeMobileMenu}>Application Modernization</Link></li>
 									<li><Link to="/services/artificial-intelligence" onClick={closeMobileMenu}>Artificial Intelligence</Link></li>
@@ -86,8 +157,20 @@ const Header = () => {
 									<li><Link to="/services/hybrid-cloud-integration" onClick={closeMobileMenu}>Hybrid Cloud Integration</Link></li>
 									<li><Link to="/services/cloud-optimization" onClick={closeMobileMenu}>Cloud Optimization</Link></li>
 									<li><Link to="/services/data-enablement-services" onClick={closeMobileMenu}>Data Enablement Services</Link></li>
-									<li className="dropdown">
-										<span className="dropdown-link">BizTalk & AIS</span>
+									<li className={`dropdown ${openDropdowns.has('biztalk') ? 'dropdown--open' : ''}`}>
+										<span 
+											className="dropdown-link"
+											onClick={(e) => toggleDropdown('biztalk', e)}
+											role="button"
+											tabIndex={0}
+											onKeyDown={(e) => {
+												if (e.key === 'Enter' || e.key === ' ') {
+													toggleDropdown('biztalk', e)
+												}
+											}}
+										>
+											BizTalk & AIS<span>▼</span>
+										</span>
 										<ul className="dropdown-menu">
 											<li><Link to="/services/biztalk-azureintegrationservices-ais" onClick={closeMobileMenu}>BizTalk Azure Integration Services</Link></li>
 											<li><Link to="/services/biztalk-health-check" onClick={closeMobileMenu}>BizTalk Health Check</Link></li>
@@ -96,7 +179,20 @@ const Header = () => {
 									</li>
 								</ul>
 							</li>
-							<li className="dropdown dropdown--manual"><span className="dropdown-link">Resources<span>▼</span></span>
+							<li className={`dropdown dropdown--manual ${openDropdowns.has('resources') ? 'dropdown--open' : ''}`}>
+								<span 
+									className="dropdown-link"
+									onClick={(e) => toggleDropdown('resources', e)}
+									role="button"
+									tabIndex={0}
+									onKeyDown={(e) => {
+										if (e.key === 'Enter' || e.key === ' ') {
+											toggleDropdown('resources', e)
+										}
+									}}
+								>
+									Resources<span>▼</span>
+								</span>
                                 <ul className="dropdown-menu">
                                     <li><Link to="/resources/blogs" onClick={closeMobileMenu}>Blogs</Link></li>
                                     <li><Link to="/resources/case-studies" onClick={closeMobileMenu}>Case Studies</Link></li>

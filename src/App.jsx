@@ -29,10 +29,8 @@ const MainLayout = () => {
     <>
       <Header />
       <main role="main">
-        <div className="container">
-          {/* Outlet renders the page based on the current route */}
-          <Outlet />
-        </div>
+        {/* Outlet renders the page based on the current route */}
+        <Outlet />
       </main>
       <Footer />
     </>
