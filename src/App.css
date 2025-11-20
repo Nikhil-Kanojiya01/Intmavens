@@ -343,14 +343,79 @@ main[role="main"] {
     padding-left: 0.3rem;
 }
 
-.navigation .dropdown-link:hover span {
-    color: var(--white);
-    background: var(--primary);
-}
-
 /* Remove auto-generated arrow for dropdowns that have manual spans */
 .navigation .dropdown-link:has(span)::after {
     display: none;
+}
+
+/* Hide Contact link in navigation on larger screens */
+.nav-contact-mobile {
+    display: none;
+}
+
+/* BizTalk & AIS dropdown with services-style should use main dropdown styling */
+.dropdown-menu .dropdown-link.services-style {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    border-radius: 0;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-menu .dropdown-link.services-style:hover {
+    background: rgba(1, 32, 96, 0.1);
+    color: var(--primary);
+}
+
+.dropdown-menu .dropdown-link.services-style span {
+    font-size: 0.5rem;
+    color: var(--text-primary);
+    display: inline-block;
+    padding-left: 0.3rem;
+}
+
+/* Mobile navigation - BizTalk & AIS with services-style colors */
+@media (max-width: 768px) {
+    .navigation .dropdown-menu .dropdown-link.services-style {
+        color: var(--white);
+        padding: 16px var(--space-m);
+        min-height: 52px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .navigation .dropdown-menu .dropdown-link.services-style:hover {
+        background: rgba(255,255,255,0.12);
+        transform: translateX(4px);
+        color: rgba(255,255,255,0.95);
+    }
+
+    .navigation .dropdown-menu .dropdown-link.services-style span {
+        color: var(--white);
+        font-size: 0.5rem;
+    }
+
+    /* Ripple effect for services-style */
+    .navigation .dropdown-menu .dropdown-link.services-style::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .navigation .dropdown-menu .dropdown-link.services-style:hover::before {
+        left: 100%;
+    }
 }
 
 .navigation .dropdown-link:hover::after {
@@ -431,7 +496,7 @@ main[role="main"] {
 	position: relative;
 }
 
-/* Nested dropdown link styling */
+/* Nested dropdown link styling - match regular dropdown items */
 .dropdown-menu .dropdown-link {
 	display: flex;
 	align-items: center;
@@ -452,17 +517,14 @@ main[role="main"] {
 }
 
 .dropdown-menu .dropdown-link span {
-	content: "▶";
 	font-size: 0.5rem;
-	margin-left: 0.5rem;
 	color: var(--white);
-	transition: all 0.2s ease;
 	display: inline-block;
+	padding-left: 0.3rem;
 }
 
 .dropdown-menu .dropdown:hover .dropdown-link span {
 	color: var(--white);
-	transform: rotate(90deg);
 }
 
 /* Nested Dropdown Menu */
@@ -542,28 +604,13 @@ main[role="main"] {
     pointer-events: none; /* Prevent icon from blocking clicks */
 }
 
-/* Hamburger hover states */
-.hamburger:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: scale(1.05);
-}
-
 .hamburger:hover i {
     transform: scale(1.1);
     color: rgba(255, 255, 255, 0.9);
 }
 
-/* Hamburger active state when menu is open */
-.hamburger--active {
-    background: rgba(255, 255, 255, 0.2);
-}
-
 .hamburger--active i {
-    transform: rotate(180deg) scale(1.1);
-}
-
-.hamburger--active:hover {
-    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.1);
 }
 
 /* Focus states for accessibility */
@@ -1962,6 +2009,12 @@ main[role="main"] {
     color: rgba(255, 255, 255, 0.8);
 }
 
+/* Hide contact icons from social section on larger screens */
+.footer__social-link[href^="tel:"],
+.footer__social-link[href^="mailto:"] {
+    display: none;
+}
+
 .footer__bottom {
     display: flex;
     justify-content: space-between;
@@ -3145,6 +3198,11 @@ main[role="main"] {
         height: 55px; 
     }
 
+    /* Show Contact link in navigation on mobile screens */
+    .nav-contact-mobile {
+        display: block;
+    }
+
     /* Mobile navigation menu */
     .navigation {
         position: absolute;
@@ -3250,7 +3308,6 @@ main[role="main"] {
     .navigation a:hover,
     .navigation a:focus,
     .navigation .dropdown-link:hover {
-        background: rgba(255,255,255,0.12);
         transform: translateX(4px);
         color: rgba(255,255,255,0.95);
         outline: none;
@@ -3291,10 +3348,10 @@ main[role="main"] {
     }
 
     /* Arrow rotation for open dropdowns */
-    .navigation .dropdown--open .dropdown-link span {
+    /* .navigation .dropdown--open .dropdown-link span {
         transform: rotate(180deg);
         transition: transform 0.3s ease;
-    }
+    } */
 
     .navigation .dropdown-link span {
         display: inline-block;
@@ -3306,11 +3363,11 @@ main[role="main"] {
     }
 
     /* Make dropdown arrows more visually prominent on mobile */
-    .navigation .dropdown-link:hover span,
+    /* .navigation .dropdown-link:hover span,
     .navigation .dropdown-link:focus span {
         background: rgba(255, 255, 255, 0.1);
         opacity: 1;
-    }
+    } */
 
     .navigation .dropdown-menu li {
         border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -3319,22 +3376,9 @@ main[role="main"] {
     .navigation .dropdown-menu a {
         padding: 14px var(--space-m) 14px calc(var(--space-m) + 20px);
         font-size: 0.9rem;
-        background: rgba(255, 255, 255, 0.03);
+        background: #3b5d9f52;
         min-height: 48px;
         position: relative;
-    }
-
-    /* Add indent indicator for nested items */
-    .navigation .dropdown-menu a::after {
-        content: '';
-        position: absolute;
-        left: var(--space-m);
-        top: 50%;
-        transform: translateY(-50%);
-        width: 2px;
-        height: 20px;
-        background: rgba(255,255,255,0.3);
-        border-radius: 1px;
     }
 
     .navigation .dropdown-menu a:hover {
@@ -3348,26 +3392,26 @@ main[role="main"] {
         width: 100%;
     }
 
-    /* Mobile nested dropdown link */
+    /* Mobile nested dropdown link - match Data Enablement Services styling */
     .navigation .dropdown-menu .dropdown-link {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 0.5rem 0.5rem 0.5rem 1.6rem;
         color: var(--white);
+        text-decoration: none;
         cursor: pointer;
         font-weight: 500;
+        font-size: var(--font-size-sm);
+        border-radius: 0;
         transition: all 0.3s ease;
     }
 
     .navigation .dropdown-menu .dropdown-link:hover {
+        background: rgba(1, 32, 96, 0.1);
         transform: translateX(4px);
     }
 
-    .navigation .dropdown-menu .dropdown-link span {
-        font-size: 0.7rem;
-        transition: transform 0.3s ease;
-        opacity: 0.8;
-    }
 
     /* Nested dropdown menu container */
     .navigation .dropdown-menu .dropdown-menu {
@@ -3412,7 +3456,6 @@ main[role="main"] {
 
     /* Nested dropdown arrow rotation */
     .navigation .dropdown-menu .dropdown--open .dropdown-link span {
-        transform: rotate(180deg);
         opacity: 1;
     }
 
@@ -3682,6 +3725,17 @@ main[role="main"] {
     .footer__contact-item {
         font-size: 0.8rem;
         padding: 0.15rem 0.3rem;
+    }
+
+    /* Hide contact text on tablet screens in main footer */
+    .footer__main .footer__contact {
+        display: none;
+    }
+
+    /* Show contact icons in social section on tablet screens */
+    .footer__social-link[href^="tel:"],
+    .footer__social-link[href^="mailto:"] {
+        display: flex;
     }
 
     .footer__social {
@@ -4175,17 +4229,46 @@ main[role="main"] {
         padding: 0.1rem 0.25rem;
     }
 
-   
+    /* Hide contact text on small screens in main footer */
+    .footer__main .footer__contact {
+        display: none;
+    }
+
+    /* Show contact icons in social section on small screens */
+    .footer__social-link[href^="tel:"],
+    .footer__social-link[href^="mailto:"] {
+        display: flex;
+    }
 
     .footer__social-link {
-        width: 25px;
-        height: 25px;
-        font-size: 0.9rem;
+        width: 18px;
+        height: 18px;
+        font-size: 0.75rem;
     }
 
     .footer__copyright {
-        font-size: 0.6rem;
+        font-size: 0;
         line-height: 1.3;
+    }
+
+    /* Show only copyright icon on small screens */
+    .footer__copyright::before {
+        content: '© Intmavens';
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Footer bottom layout for small screens */
+    .footer__bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    .footer__social {
+        order: 2;
+        justify-content: flex-end;
     }
 
     /* Buttons small mobile */

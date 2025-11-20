@@ -32,6 +32,12 @@ const Footer = () => (
           <span style={{ color: "#f1c111" }}>M</span>avens. All Rights Reserved.
         </p>
         <div className="footer__social" role="navigation" aria-label="Social links">
+          <a href="tel:+917972143020" className="footer__social-link" title="Phone" aria-label="Phone">
+            <i className="fas fa-phone" aria-hidden="true"></i>
+          </a>
+          <a href="mailto:contactus@intmavens.com" className="footer__social-link" title="Email" aria-label="Email">
+            <i className="fas fa-envelope" aria-hidden="true"></i>
+          </a>
           <a href="https://wa.me/917972143020" target="_blank" rel="noopener noreferrer" className="footer__social-link" title="WhatsApp" aria-label="WhatsApp">
             <i className="fa-brands fa-whatsapp" aria-hidden="true"></i>
           </a>
