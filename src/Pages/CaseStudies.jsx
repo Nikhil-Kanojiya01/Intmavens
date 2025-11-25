@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { caseStudies } from "../data/blogPosts";
+import { blogPosts } from "../data/blogPosts";
 
 const CaseStudies = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -8,8 +8,13 @@ const CaseStudies = () => {
   // Get unique categories from case studies
   const categories = [
     "All",
-    ...new Set(caseStudies.map((study) => study.category)),
+    ...new Set(blogPosts.map((study) => study.category)),
   ];
+
+  // Filtering Case Studies
+  const caseStudies = blogPosts.filter(
+    (post) => post.category === "CASE STUDIES"
+  );
 
   // Filter case studies based on search and category
   const filteredStudies = caseStudies.filter((study) => {
@@ -55,7 +60,9 @@ const CaseStudies = () => {
                     <h3 className="case-study-card__title">{study.title}</h3>
                     <p className="case-study-card__excerpt">{study.excerpt}</p>
                     <div className="case-study-card__meta">
-                      <span className="case-study-card__date">{study.date}</span>
+                      <span className="case-study-card__date">
+                        {study.date}
+                      </span>
                     </div>
                   </div>
                 </article>
