@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { blogPosts } from "../data/blogPosts";
 import Search from "../components/Search";
 import RecentPosts from "../components/RecentPost"; // Import the RecentPosts component
 import Categories from "../components/Categories";
+import { useLocation } from "react-router-dom";
 
 const BlogPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -34,6 +35,22 @@ const BlogPage = () => {
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
   };
+
+  // Open a post when navigated from another route with state (e.g. CaseStudies)
+  const location = useLocation();
+  console.log("Location by nikhil : ",location)
+  useEffect(() => {
+    if (location && location.state && location.state.selectedSlug) {
+      const slug = location.state.selectedSlug;
+      const post = blogPosts.find((p) => p.slug === slug);
+      if (post) setSelectedPost(post);
+    }
+    if (location && location.state && location.state.selectedId) {
+      const id = location.state.selectedId;
+      const post = blogPosts.find((p) => p.id === id);
+      if (post) setSelectedPost(post);
+    }
+  }, []);
 
   return (
     <div className="blog-page">

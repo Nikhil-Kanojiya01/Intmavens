@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { blogPosts } from "../data/blogPosts";
 
 const CaseStudies = () => {
@@ -43,29 +44,34 @@ const CaseStudies = () => {
           <div className="case-studies-main-full">
             <div className="case-studies-grid">
               {filteredStudies.map((study) => (
-                <article key={study.id} className="case-study-card">
-                  <div className="case-study-card__image">
-                    <img
-                      src={study.image}
-                      alt={study.title}
-                      className="case-study-card__img"
-                    />
-                    <div className="case-study-card__overlay">
-                      <span className="case-study-card__category">
-                        {study.category}
-                      </span>
+                <Link
+                  key={study.id}
+                  to="/resources/blogs"
+                  state={{ selectedSlug: study.slug }}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <article className="case-study-card">
+                    <div className="case-study-card__image">
+                      <img
+                        src={study.image}
+                        alt={study.title}
+                        className="case-study-card__img"
+                      />
+                      <div className="case-study-card__overlay">
+                        <span className="case-study-card__category">
+                          {study.category}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <div className="case-study-card__content">
-                    <h3 className="case-study-card__title">{study.title}</h3>
-                    <p className="case-study-card__excerpt">{study.excerpt}</p>
-                    <div className="case-study-card__meta">
-                      <span className="case-study-card__date">
-                        {study.date}
-                      </span>
+                    <div className="case-study-card__content">
+                      <h3 className="case-study-card__title">{study.title}</h3>
+                      <p className="case-study-card__excerpt">{study.excerpt}</p>
+                      <div className="case-study-card__meta">
+                        <span className="case-study-card__date">{study.date}</span>
+                      </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </Link>
               ))}
             </div>
 
