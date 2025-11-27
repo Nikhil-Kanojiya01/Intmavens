@@ -90,6 +90,18 @@ html, body, #root {
     height: 100%;
 }
 
+/* Prevent horizontal scrolling site-wide */
+html, body {
+    overflow-x: hidden;
+}
+
+/* Constrain large media that could cause horizontal overflow */
+img, picture, video, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 body {
     margin: 0;
     font-family: 'Poppins', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -777,6 +789,97 @@ main[role="main"] {
     z-index: 2;
 }
 
+/* Comments  Section */
+.comments {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.comments h3 {
+    font-size: 1.6rem;
+    margin: 0 0 0.25rem 0;
+    font-weight: 600;
+    color: var(--text, #222);
+}
+.comments .muted {
+    color: #6c757d;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.comments-form {
+    width: 100%;
+}
+.comments-form .form-group {
+    margin-bottom: 1rem;
+}
+.comments-form .form-textarea {
+    width: 100%;
+    border: 1px solid #e6e6e6;
+    padding: 1rem;
+    border-radius: 3px;
+    background: #fff;
+    resize: vertical;
+    min-height: 140px;
+    box-shadow: none;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Remove dark/black focus outline on textarea; keep subtle border color instead */
+.comments-form .form-textarea:focus,
+.comments-form .form-textarea:focus-visible {
+    outline: none;
+}
+
+.comments-form .row-three {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.comments-form .row-three > .form-group {
+    flex: 1;
+}
+.comments-form .row-three .form-input {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.comments .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #333;
+    font-size: 0.95rem;
+}
+.comments .checkbox-input {
+    width: 18px;
+    height: 18px;
+}
+
+.comments .btn--primary,
+.comments .btn-primary {
+    background: var(--primary);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    border: none;
+    font-weight: 600;
+}
+.comments .btn--primary:hover,
+.comments .btn-primary:hover {
+    background: var(--primary-variant);
+}
+
+.comment-submitted {
+    padding: 1rem;
+    background: #f7fbff;
+    border-left: 4px solid #2196f3;
+    border-radius: 4px;
+}
+
 /* Hero animations */
 @keyframes fadeInUp {
     from {
@@ -1007,7 +1110,7 @@ main[role="main"] {
 .service-card__content {
     position: relative;
     z-index: 2;
-    height: 140px;
+    height: 120px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1084,8 +1187,8 @@ main[role="main"] {
 
 .informative__visual {
     flex: 1;
-    max-width: 50%;
 }
+
 
 .informative__image {
     width: 100%;
@@ -1181,7 +1284,7 @@ main[role="main"] {
 .blog-layout {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    gap: 2rem;
+    /* gap: 2rem; */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -1283,7 +1386,7 @@ main[role="main"] {
 /* Blog details styling for full-post view */
 .blog-details-container {
     max-width: 900px;
-    margin: 0 auto 2rem auto;
+    /* margin: 0 auto 2rem auto; */
     padding: 0.5rem;
 }
 
@@ -2830,6 +2933,18 @@ main[role="main"] {
     line-height: 1.6;
 }
 
+.service-card__icon {
+     width: 64px;
+     height: 64px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: #fff;
+     background: linear-gradient(45deg, #012060, #5c91ff);
+     flex-shrink: 0;
+}
+
 /* BizTalk Health Check Specific Styles */
 .health-check-diagram {
     margin: 2rem 0;
@@ -2972,7 +3087,7 @@ main[role="main"] {
     }
     .blog-layout {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        /* gap: 2rem; */
     }
 
     .blog-grid {
@@ -2989,9 +3104,9 @@ main[role="main"] {
         padding: 1rem;
     }
 
-    .sidebar-widget {
+    /* .sidebar-widget {
         padding: 1rem;
-    }
+    } */
 }
 
 /* 8. RESPONSIVE DESIGN (Mobile-first)
@@ -3963,6 +4078,11 @@ main[role="main"] {
         left: 50%;
         transform: translateX(-50%);
     }
+
+    /* comment */
+    .comments-form .row-three {
+        flex-direction: column;
+    }
 }
 
 /* Small mobile (480px and below) */
@@ -4141,9 +4261,10 @@ main[role="main"] {
     }
 
     .service-card__icon {
-        width: 55px;
-        height: 55px;
-        margin-bottom: 1rem;
+        width: 85px;
+        height: 85px;
+        margin-bottom: 0.1rem;
+        margin-top: 1.5rem;
     }
 
     .service-card__icon-symbol {
@@ -4151,7 +4272,7 @@ main[role="main"] {
     }
 
     .service-card__title {
-        font-size: 1rem;
+        font-size: 1.5rem;
         margin-bottom: 0.5rem;
     }
 

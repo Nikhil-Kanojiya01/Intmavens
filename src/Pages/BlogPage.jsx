@@ -4,6 +4,7 @@ import Search from "../components/Search";
 import RecentPosts from "../components/RecentPost"; // Import the RecentPosts component
 import Categories from "../components/Categories";
 import { useLocation } from "react-router-dom";
+import Comments from "../components/Comments";
 
 const BlogPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -134,6 +135,8 @@ const BlogPage = () => {
                   >
                     ← Back to posts
                   </button>
+                  {/* Comments section (below post details) */}
+                  <Comments />
                 </div>
               )}
 

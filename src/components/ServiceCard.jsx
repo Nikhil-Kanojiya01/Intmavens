@@ -5,7 +5,7 @@ const ServiceCard = ({ service, className = '' }) => {
 
 	return (
 		<article className={`service-card ${className}`}>
-			<div className="service-card__icon" style={{ backgroundColor: color }}>
+			<div className="service-card__icon">
 				<i className={`service-card__icon-symbol ${icon}`}></i>
 			</div>
 			<div className="service-card__content">
