@@ -65,7 +65,10 @@ const CaseStudies = () => {
                     </div>
                     <div className="case-study-card__content">
                       <h3 className="case-study-card__title">{study.title}</h3>
-                      <p className="case-study-card__excerpt">{study.excerpt}</p>
+                      <p className="blog-card__excerpt">
+                          {study.excerpt.split(" ").slice(0, 15).join(" ")}
+                          {study.excerpt.split(" ").length > 15 && "..."}
+                        </p>
                       <div className="case-study-card__meta">
                         <span className="case-study-card__date">{study.date}</span>
                       </div>

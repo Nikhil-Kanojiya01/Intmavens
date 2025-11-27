@@ -7,8 +7,7 @@ export const blogPosts = [
     category: "Azure Monitor",
     date: "August 18, 2023",
     slug: "logicapps-creating-loganalytics-based-alerts-and-monitoring",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: new URL('../assets/images/blogs/imgi_40.png', import.meta.url).href,
     content: `
       <h3>Client Overview</h3>
       <p>This walkthrough shows how to create Log Analytics-based alerts and monitoring for Logic Apps to proactively detect failures and performance issues.</p>
@@ -33,8 +32,7 @@ export const blogPosts = [
     category: "Azure Data",
     date: "November 18, 2023",
     slug: "bring-your-own-db-byod-d365-export-to-data-lake",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: new URL('../assets/images/blogs/imgi_40.png', import.meta.url).href,
     content: `
       <h3>Client Overview</h3>
       <p>Guidance for exporting Dynamics 365 data to a data lake and handling Bring Your Own Database (BYOD) scenarios.</p>
@@ -52,8 +50,7 @@ export const blogPosts = [
     category: "Azure Analytics",
     date: "November 18, 2025",
     slug: "azure-synapse-pipelines-monitoring-alerting",
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: new URL('../assets/images/blogs/imgi_28.png', import.meta.url).href,
     content: `
       <h3>Overview</h3>
       <p>How to wire Azure Synapse Pipelines into Log Analytics to monitor job runs, detect failures and alert responsible teams.</p>
@@ -73,8 +70,7 @@ export const blogPosts = [
     category: "BizTalk Migration",
     date: "November 22, 2023",
     slug: "biztalk-whats-next-migrate-upgrade-redesign",
-    image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: new URL('../assets/images/blogs/imgi_40.png', import.meta.url).href,
     content: `
       <h3>Executive Summary</h3>
       <p>This article compares migration, upgrade, and redesign strategies for BizTalk-based solutions and helps teams choose the right path.</p>
@@ -82,7 +78,6 @@ export const blogPosts = [
       <p>Evaluate technical debt, integrations, message volumes and business requirements before selecting a strategy.</p>
     `,
   },
-  // Case Studies with public images from Unsplash as placeholders
   {
     id: 5,
     title:
@@ -92,8 +87,7 @@ export const blogPosts = [
     category: "CASE STUDIES",
     date: "August 26, 2025",
     slug: "snowflake-vs-databricks-vs-fabric-best-data-warehouse",
-    image:
-      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: new URL('../assets/images/blogs/imgi_22.png', import.meta.url).href,
     content: "",
   },
   {
@@ -104,8 +98,7 @@ export const blogPosts = [
     category: "CASE STUDIES",
     date: "December 28, 2023",
     slug: "hr-feedback-collaboration-platform-recruitment-made-easy",
-    image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: new URL('../assets/images/blogs/imgi_26.png', import.meta.url).href,
     content: "",
   },
   {
@@ -117,8 +110,7 @@ export const blogPosts = [
     category: "CASE STUDIES",
     date: "December 27, 2023",
     slug: "encryption-decryption-parquet-files-large-scale-data-operations",
-    image:
-      "https://images.unsplash.com/photo-1532619675605-14c8ee3ed57b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: new URL('../assets/images/blogs/imgi_28_ParquetEncryptionDecryption.png', import.meta.url).href,
     content: "",
   },
   {
@@ -129,8 +121,7 @@ export const blogPosts = [
     category: "CASE STUDIES",
     date: "December 27, 2023",
     slug: "seamless-biztalk-2016-upgrade-enhancement",
-    image:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: new URL('../assets/images/blogs/imgi_40.png', import.meta.url).href,
     content: "",
   },
   {
@@ -141,8 +132,7 @@ export const blogPosts = [
     category: "CASE STUDIES",
     date: "December 27, 2023",
     slug: "creating-millet-based-healthy-food-chain-app",
-    image:
-      "https://images.unsplash.com/photo-1484981138541-3d074aa97716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: new URL('../assets/images/blogs/imgi_40.png', import.meta.url).href,
     content: "",
   },
   {
@@ -153,8 +143,7 @@ export const blogPosts = [
     category: "CASE STUDIES",
     date: "December 27, 2023",
     slug: "azure-synapse-pipeline-proactive-monitoring-alerting",
-    image:
-      "https://images.unsplash.com/photo-1530731141654-5993c3016c77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: new URL('../assets/images/blogs/imgi_40.png', import.meta.url).href,
     content: "",
   },
   {
@@ -165,8 +154,7 @@ export const blogPosts = [
     category: "CASE STUDIES",
     date: "December 26, 2023",
     slug: "azure-cost-optimization-30-percent-monthly-reduction",
-    image:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: new URL('../assets/images/blogs/imgi_40.png', import.meta.url).href,
     content: "",
   },
 ];

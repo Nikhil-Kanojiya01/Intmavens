@@ -38,7 +38,6 @@ const BlogPage = () => {
 
   // Open a post when navigated from another route with state (e.g. CaseStudies)
   const location = useLocation();
-  console.log("Location by nikhil : ",location)
   useEffect(() => {
     if (location && location.state && location.state.selectedSlug) {
       const slug = location.state.selectedSlug;

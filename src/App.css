@@ -1284,13 +1284,13 @@ main[role="main"] {
 .blog-details-container {
     max-width: 900px;
     margin: 0 auto 2rem auto;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 .blog-details {
     background: var(--white);
     border-radius: 8px;
-    padding: 1.5rem;
+    padding: 1.1rem;
     box-shadow: 0 6px 18px rgba(19, 24, 31, 0.06);
 }
 
