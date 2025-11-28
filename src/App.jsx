@@ -22,6 +22,7 @@ import BiztalkHealthCheck from "./Pages/BiztalkHealthCheck";
 import BiztalkAzureintegrationservices from "./Pages/BiztalkAzureintegrationservices";
 import BlogPage from "./Pages/BlogPage";
 import CaseStudies from "./Pages/CaseStudies";
+import Career from "./Pages/career";
 
 const MainLayout = () => {
   useScrollToTop();
@@ -46,6 +47,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="services" element={<Services />} />
+          <Route path="career" element={<Career />} />
           <Route
             path="services/hybrid-cloud-integration"
             element={<HybridCloudIntegration />}
