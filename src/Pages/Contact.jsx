@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import formImage from "../assets/images/form-image.jpg";
 
 const Contact = () => {
@@ -9,11 +10,52 @@ const Contact = () => {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("Contact Form Data:", data);
-    // Here you would typically send the data to your backend
-    alert("Thank you for your message! We will get back to you soon.");
-    reset();
+  const [loading, setLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' or 'error'
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const onSubmit = async (data) => {
+    setLoading(true);
+    setSubmitStatus(null);
+    setErrorMessage("");
+
+    try {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+      
+      console.log('🔵 Submitting to:', `${API_URL}/api/mail/contact`);
+      console.log('📤 Data:', data);
+
+      const response = await fetch(`${API_URL}/api/mail/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          message: data.message,
+        }),
+      });
+
+      const result = await response.json();
+      console.log('📥 Response:', result);
+
+      if (result.ok) {
+        setSubmitStatus('success');
+        reset();
+        setTimeout(() => setSubmitStatus(null), 5000);
+      } else {
+        setSubmitStatus('error');
+        setErrorMessage(result.error || 'Failed to submit. Please try again.');
+      }
+    } catch (err) {
+      console.error('❌ Error:', err);
+      setSubmitStatus('error');
+      setErrorMessage('Unable to connect to server. Please ensure the backend is running.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -68,6 +110,36 @@ const Contact = () => {
             <div className="contact-form__content">
               <h2 className="contact-form__title">Get in Touch</h2>
 
+              {/* Success Message */}
+              {submitStatus === 'success' && (
+                <div style={{
+                  padding: '15px',
+                  marginBottom: '20px',
+                  backgroundColor: '#d4edda',
+                  color: '#155724',
+                  borderRadius: '4px',
+                  border: '1px solid #c3e6cb'
+                }}>
+                  ✅ Thank you for your message! We will get back to you soon.
+                  <br />
+                  <small>Confirmation emails have been sent to both you and our team.</small>
+                </div>
+              )}
+
+              {/* Error Message */}
+              {submitStatus === 'error' && (
+                <div style={{
+                  padding: '15px',
+                  marginBottom: '20px',
+                  backgroundColor: '#f8d7da',
+                  color: '#721c24',
+                  borderRadius: '4px',
+                  border: '1px solid #f5c6cb'
+                }}>
+                  ❌ {errorMessage}
+                </div>
+              )}
+
               <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
                 <div className="form-group">
                   <label htmlFor="name" className="form-label">
@@ -80,6 +152,7 @@ const Contact = () => {
                       errors.name ? "form-input--error" : ""
                     }`}
                     placeholder="Name"
+                    disabled={loading}
                     {...register("name", {
                       required: "Name is required",
                       minLength: {
@@ -104,6 +177,7 @@ const Contact = () => {
                       errors.email ? "form-input--error" : ""
                     }`}
                     placeholder="Email"
+                    disabled={loading}
                     {...register("email", {
                       required: "Email is required",
                       pattern: {
@@ -128,6 +202,7 @@ const Contact = () => {
                       errors.phone ? "form-input--error" : ""
                     }`}
                     placeholder="Phone"
+                    disabled={loading}
                     {...register("phone", {
                       required: "Phone is required",
                       pattern: {
@@ -152,6 +227,7 @@ const Contact = () => {
                       errors.message ? "form-input--error" : ""
                     }`}
                     placeholder="Message"
+                    disabled={loading}
                     {...register("message", {
                       required: "Message is required",
                       minLength: {
@@ -170,6 +246,7 @@ const Contact = () => {
                     <input
                       type="checkbox"
                       className="checkbox-input"
+                      disabled={loading}
                       {...register("terms", {
                         required: "You must agree to the terms and conditions",
                       })}
@@ -187,8 +264,9 @@ const Contact = () => {
                 <button
                   type="submit"
                   className="btn btn--primary contact-form__submit"
+                  disabled={loading}
                 >
-                  Submit Query
+                  {loading ? 'Submitting...' : 'Submit Query'}
                 </button>
               </form>
             </div>

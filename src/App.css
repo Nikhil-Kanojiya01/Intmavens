@@ -1873,6 +1873,41 @@ main[role="main"] {
     line-height: var(--line-height-relaxed);
 }
 
+/* Happy Customers */
+.happy-customers {
+    padding: 3rem 0;
+    background: var(--white);
+}
+.happy-customers__header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.happy-customers__underline {
+    display: none;
+}
+.happy-customers__slider {
+    width: 100%;
+    margin: 0 auto;
+}
+.happy-customers__card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.happy-customers__card img {
+    width: 160px;
+    height: 100px;
+    object-fit: contain;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .happy-customers {
+        padding: 2.5rem 0;
+    }
+}
+
 /* Career Page */
 .career-page {
     padding: 2.5rem 0;

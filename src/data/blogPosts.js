@@ -7,7 +7,7 @@ export const blogPosts = [
     category: "Azure Monitor",
     date: "August 18, 2023",
     slug: "logicapps-creating-loganalytics-based-alerts-and-monitoring",
-    image: new URL('../assets/images/blogs/imgi_40.png', import.meta.url).href,
+    image: new URL('../assets/images/blogs/imgi_11.png', import.meta.url).href,
     content: `
       <h3>Client Overview</h3>
       <p>This walkthrough shows how to create Log Analytics-based alerts and monitoring for Logic Apps to proactively detect failures and performance issues.</p>
@@ -32,7 +32,7 @@ export const blogPosts = [
     category: "Azure Data",
     date: "November 18, 2023",
     slug: "bring-your-own-db-byod-d365-export-to-data-lake",
-    image: new URL('../assets/images/blogs/imgi_40.png', import.meta.url).href,
+    image: new URL('../assets/images/blogs/imgi_9.png', import.meta.url).href,
     content: `
       <h3>Client Overview</h3>
       <p>Guidance for exporting Dynamics 365 data to a data lake and handling Bring Your Own Database (BYOD) scenarios.</p>
@@ -50,7 +50,7 @@ export const blogPosts = [
     category: "Azure Analytics",
     date: "November 18, 2025",
     slug: "azure-synapse-pipelines-monitoring-alerting",
-    image: new URL('../assets/images/blogs/imgi_28.png', import.meta.url).href,
+    image: new URL('../assets/images/blogs/imgi_3.png', import.meta.url).href,
     content: `
       <h3>Overview</h3>
       <p>How to wire Azure Synapse Pipelines into Log Analytics to monitor job runs, detect failures and alert responsible teams.</p>
@@ -70,7 +70,7 @@ export const blogPosts = [
     category: "BizTalk Migration",
     date: "November 22, 2023",
     slug: "biztalk-whats-next-migrate-upgrade-redesign",
-    image: new URL('../assets/images/blogs/imgi_40.png', import.meta.url).href,
+    image: new URL('../assets/images/blogs/imgi_10.png', import.meta.url).href,
     content: `
       <h3>Executive Summary</h3>
       <p>This article compares migration, upgrade, and redesign strategies for BizTalk-based solutions and helps teams choose the right path.</p>
@@ -87,7 +87,7 @@ export const blogPosts = [
     category: "CASE STUDIES",
     date: "August 26, 2025",
     slug: "snowflake-vs-databricks-vs-fabric-best-data-warehouse",
-    image: new URL('../assets/images/blogs/imgi_22.png', import.meta.url).href,
+    image: new URL('../assets/images/blogs/imgi_6.png', import.meta.url).href,
     content: "",
   },
   {
@@ -98,7 +98,7 @@ export const blogPosts = [
     category: "CASE STUDIES",
     date: "December 28, 2023",
     slug: "hr-feedback-collaboration-platform-recruitment-made-easy",
-    image: new URL('../assets/images/blogs/imgi_26.png', import.meta.url).href,
+    image: new URL('../assets/images/blogs/imgi_7.png', import.meta.url).href,
     content: "",
   },
   {
@@ -110,7 +110,7 @@ export const blogPosts = [
     category: "CASE STUDIES",
     date: "December 27, 2023",
     slug: "encryption-decryption-parquet-files-large-scale-data-operations",
-    image: new URL('../assets/images/blogs/imgi_28_ParquetEncryptionDecryption.png', import.meta.url).href,
+    image: new URL('../assets/images/blogs/imgi_8.png', import.meta.url).href,
     content: "",
   },
   {
@@ -121,7 +121,7 @@ export const blogPosts = [
     category: "CASE STUDIES",
     date: "December 27, 2023",
     slug: "seamless-biztalk-2016-upgrade-enhancement",
-    image: new URL('../assets/images/blogs/imgi_40.png', import.meta.url).href,
+    image: new URL('../assets/images/blogs/imgi_4.png', import.meta.url).href,
     content: "",
   },
   {
@@ -132,7 +132,7 @@ export const blogPosts = [
     category: "CASE STUDIES",
     date: "December 27, 2023",
     slug: "creating-millet-based-healthy-food-chain-app",
-    image: new URL('../assets/images/blogs/imgi_40.png', import.meta.url).href,
+    image: new URL('../assets/images/blogs/imgi_1.png', import.meta.url).href,
     content: "",
   },
   {
@@ -143,7 +143,7 @@ export const blogPosts = [
     category: "CASE STUDIES",
     date: "December 27, 2023",
     slug: "azure-synapse-pipeline-proactive-monitoring-alerting",
-    image: new URL('../assets/images/blogs/imgi_40.png', import.meta.url).href,
+    image: new URL('../assets/images/blogs/imgi_3.png', import.meta.url).href,
     content: "",
   },
   {
@@ -154,7 +154,7 @@ export const blogPosts = [
     category: "CASE STUDIES",
     date: "December 26, 2023",
     slug: "azure-cost-optimization-30-percent-monthly-reduction",
-    image: new URL('../assets/images/blogs/imgi_40.png', import.meta.url).href,
+    image: new URL('../assets/images/blogs/imgi_5.jpg', import.meta.url).href,
     content: "",
   },
 ];

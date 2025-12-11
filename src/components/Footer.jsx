@@ -41,16 +41,13 @@ const Footer = () => (
           <a href="https://wa.me/917972143020" target="_blank" rel="noopener noreferrer" className="footer__social-link" title="WhatsApp" aria-label="WhatsApp">
             <i className="fa-brands fa-whatsapp" aria-hidden="true"></i>
           </a>
-          <a href="https://facebook.com/intmavens" target="_blank" rel="noopener noreferrer" className="footer__social-link" title="Facebook" aria-label="Facebook">
+          <a href="https://www.facebook.com/IntMavens" target="_blank" rel="noopener noreferrer" className="footer__social-link" title="Facebook" aria-label="Facebook">
             <i className="fa-brands fa-facebook" aria-hidden="true"></i>
           </a>
-          <a href="https://instagram.com/intmavens" target="_blank" rel="noopener noreferrer" className="footer__social-link" title="Instagram" aria-label="Instagram">
-            <i className="fa-brands fa-instagram" aria-hidden="true"></i>
-          </a>
-          <a href="https://twitter.com/intmavens" target="_blank" rel="noopener noreferrer" className="footer__social-link" title="Twitter / X" aria-label="Twitter">
+          <a href="https://twitter.com/IntMavens" target="_blank" rel="noopener noreferrer" className="footer__social-link" title="Twitter / X" aria-label="Twitter">
             <i className="fa-brands fa-twitter" aria-hidden="true"></i>
           </a>
-          <a href="https://linkedin.com/company/intmavens" target="_blank" rel="noopener noreferrer" className="footer__social-link" title="LinkedIn" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/company/intmavens-infotech/" target="_blank" rel="noopener noreferrer" className="footer__social-link" title="LinkedIn" aria-label="LinkedIn">
             <i className="fa-brands fa-linkedin" aria-hidden="true"></i>
           </a>
           <a href="https://youtube.com/@intmavens" target="_blank" rel="noopener noreferrer" className="footer__social-link" title="YouTube" aria-label="YouTube">

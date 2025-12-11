@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ServiceCard = ({ service, className = '' }) => {
-	const { title, description, icon, color } = service
+	const { title, description, icon, } = service
 
 	return (
 		<article className={`service-card ${className}`}>
